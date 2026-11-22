@@ -1,6 +1,6 @@
 # dsh-pirate-mode
 
-给 DeepSeek Harness 加上一套海盗模式：把你当成海盗船长，把 Agent 变成你的大副，还在窗口后面铺开一片真会航行的海。
+给 DeepSeek Harness 加上一套海盗模式：你是海盗船长，Agent 是你的大副，还在窗口后面铺开一片真有船在航行的海。
 
 ## 装完之后会变成什么样
 
@@ -30,7 +30,7 @@ dsh plugin --profile desktop add dsh-pirate-mode
 安装这一个主包会自动带齐底层的 5 个组件，不用手动逐个安装：
 
 - `dsh-brand-pack-loader`
-- `dsh-locale-pack-loader`：为全部 8 种内置语言注册对应的海盗语言包。
+- `dsh-locale-pack-loader`
 - `dsh-rotate-status-text`
 - `dsh-ocean-background`
 - `dsh-prompt-loader`
@@ -46,7 +46,7 @@ dsh plugin --profile desktop add dsh-pirate-mode
 - 界面文案、状态栏短句、轮换间隔以及大副人格提示词都集中在「语种内容」卡片里，顶部按语种切换，默认只展示当前正在用的这一种语言，保存后立即生效，升级插件也不会覆盖你的修改。
 - 海洋背景由窗口右下角的海景按钮单独控制，可以调透明度、画质、镜头远近与角度，也可以暂停或关闭海面。
 
-如果想给其他语言新增一套默认海盗包，往包里 `content/` 目录下放对应语言 ID 的文件就行，不用改代码：
+如果想给其他语言新增一套默认海盗包，往包里 `content/` 目录下放对应语言 ID 的文件就行：
 
 ```text
 content/
