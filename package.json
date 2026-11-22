@@ -1,6 +1,6 @@
 {
   "name": "dsh-pirate-mode",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "type": "module",
   "description": "Configuration bundle for pirate brand marks, per-language dictionaries, rotating status phrases, ocean background and an editable first-mate persona.",
   "license": "MIT",
@@ -50,11 +50,11 @@
     "LICENSE"
   ],
   "dependencies": {
-    "dsh-rotate-status-text": "^0.2.1",
-    "dsh-prompt-loader": "^0.2.0",
-    "dsh-locale-pack-loader": "^0.2.1",
-    "dsh-brand-pack-loader": "^0.1.2",
-    "dsh-ocean-background": "^0.1.7"
+    "dsh-rotate-status-text": "latest",
+    "dsh-prompt-loader": "latest",
+    "dsh-locale-pack-loader": "latest",
+    "dsh-brand-pack-loader": "latest",
+    "dsh-ocean-background": "latest"
   },
   "dsh": {
     "bundle": {
