@@ -1,0 +1,14 @@
+{
+  "id": "zh-pirate",
+  "label": "简体中文 · 海盗",
+  "fallback": "zh",
+  "dictionaries": {
+    "sidebar": {
+      "session.new": "新航程",
+      "session.new.label": "新航程"
+    },
+    "conversation": {
+      "hero.headline": "扬帆，启航"
+    }
+  }
+}

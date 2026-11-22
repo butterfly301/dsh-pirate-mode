@@ -1,0 +1,14 @@
+{
+  "id": "es-pirate",
+  "label": "Español · Pirata",
+  "fallback": "es",
+  "dictionaries": {
+    "sidebar": {
+      "session.new": "Nueva travesía",
+      "session.new.label": "Nueva travesía"
+    },
+    "conversation": {
+      "hero.headline": "Iza velas, a navegar"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "fr-pirate",
+  "label": "Français · Pirate",
+  "fallback": "fr",
+  "dictionaries": {
+    "sidebar": {
+      "session.new": "Nouvelle traversée",
+      "session.new.label": "Nouvelle traversée"
+    },
+    "conversation": {
+      "hero.headline": "Hissez les voiles"
+    }
+  }
+}

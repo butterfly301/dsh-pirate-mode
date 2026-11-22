@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Piratenmodus",
+    "description": "Macht dich zum Kapitän und den Agenten zum Ersten Maat, inklusive Piraten-Symbolen, animiertem Meereshintergrund, nautischen Statussprüchen und mehrsprachigen Paketen."
+  },
+  "ui": {
+    "nav": "Piratenmodus",
+    "hint": "Symbole, Piratentexte, Statussprüche und der Erste-Maat-Prompt werden beim Speichern sofort aktiv.",
+    "master": "Hauptschalter",
+    "masterHint": "Ausschalten stellt Original-Symbole und Texte wieder her und deaktiviert den Prompt; eine aktive Piratensprache wechselt zurück zur Basissprache.",
+    "on": "Ein",
+    "off": "Aus",
+    "brand": "Markensymbole",
+    "brandHint": "Wähle für Seitenleiste, Startsymbol und Wortmarke jeweils Pirat oder Original.",
+    "slotSidebar": "Seitenleistensymbol",
+    "slotHero": "Startsymbol",
+    "slotWordmark": "Wortmarke",
+    "pirate": "Pirat",
+    "original": "Original",
+    "messages": "Oberflächentexte",
+    "messagesHint": "Piratenvokabular für die DSH-Oberfläche in dieser Sprache.",
+    "key_sidebar_new": "Neuer Chat",
+    "key_hero_headline": "Startseiten-Titel",
+    "phrases": "Statussprüche",
+    "phrasesHint": "Nautische Sprüche für die Statuszeile, ein Spruch pro Zeile.",
+    "interval": "Wechselintervall in ms",
+    "persona": "Persönlichkeits-Prompt",
+    "personaHint": "System-Prompt des Ersten Maats für den Agenten. Wird beim Speichern live neu geladen; leer lassen zum Deaktivieren.",
+    "langSection": "Sprachinhalte",
+    "langSectionHint": "Wähle unten die Sprache zum Bearbeiten. Dieser Schalter ändert nicht die aktive Oberflächensprache.",
+    "editingLang": "Sprache bearbeiten",
+    "noLocalePackForLang": "Für diese Sprache ist kein Oberflächentext-Paket eingerichtet.",
+    "save": "Speichern",
+    "saved": "Gespeichert",
+    "saving": "Speichern…",
+    "loadFailed": "Konfiguration konnte nicht geladen werden",
+    "saveFailed": "Speichern fehlgeschlagen",
+    "loading": "Wird geladen…",
+    "noLanguages": "Derzeit sind keine Sprachinhalte aktiviert.",
+    "noPrompts": "Der Persönlichkeits-Prompt ist derzeit deaktiviert.",
+    "oceanNote": "Der Meereshintergrund wird separat unten rechts eingestellt."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "en-pirate",
+  "label": "English · Pirate",
+  "fallback": "en",
+  "dictionaries": {
+    "sidebar": {
+      "session.new": "New Voyage",
+      "session.new.label": "New Voyage"
+    },
+    "conversation": {
+      "hero.headline": "Set sail"
+    }
+  }
+}

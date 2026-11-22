@@ -1,0 +1,42 @@
+# All language content lives under content/, keyed by language id in the file
+# name. Adding a language = dropping in files; no patch or code edits needed:
+#   content/messages/<langId>.json  -> locale dictionaries + language definition
+#   content/phrases/<langId>.txt    -> rotating status phrases
+#   content/prompts/<langId>.txt    -> first-mate system prompt
+# Each !!js delegates to dsh-pirate-mode/patch-data (patch eval scope: baseUrl / process / ctx).
+- insert:
+    # Host row: serves /pirate-mode/locale/<lang>.json and exposes this
+    # package's settings page (dsh.client).
+    - id: pirate-mode
+      name: 'dsh-pirate-mode'
+    - id: locale-pack-loader
+      name: 'dsh-locale-pack-loader'
+      config:
+        packs: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadMessages()
+    - id: brand-pack-loader
+      name: 'dsh-brand-pack-loader'
+      config:
+        pack:
+          id: pirate
+          sidebarMark: &pirateWhale !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadSvgDataUrl('assets/pirate-deepseek-selected.svg')
+          heroMark: *pirateWhale
+          wordmark:
+            src: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadSvgDataUrl('assets/deepseek-pirate-wordmark.svg')
+            width: 156
+            height: 24
+            tint: true
+    - id: ocean-background
+      name: 'dsh-ocean-background'
+    - id: prompt-loader
+      name: 'dsh-prompt-loader'
+      config:
+        pack:
+          name: 'pirate:first-mate'
+          order: 101
+          texts: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadPrompts()
+    - id: dsh-rotate-status-text
+      name: 'dsh-rotate-status-text'
+      config:
+        pack:
+          intervalMs: 10000
+          phrases: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadPhrases()

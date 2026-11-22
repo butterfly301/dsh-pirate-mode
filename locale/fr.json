@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Mode pirate",
+    "description": "Vous place à la barre en tant que capitaine et transforme l'agent en second pirate, avec icônes maritimes, fond océanique animé, phrases d'état nautiques et packs multilingues."
+  },
+  "ui": {
+    "nav": "Mode pirate",
+    "hint": "Les icônes, les textes pirates, les phrases d’état et le prompt du second s’appliquent dès l’enregistrement.",
+    "master": "Interrupteur général",
+    "masterHint": "Désactiver rétablit les icônes et textes d’origine ainsi que le prompt du second ; si une langue pirate est active, la langue de base est rétablie.",
+    "on": "Activé",
+    "off": "Désactivé",
+    "brand": "Marques visuelles",
+    "brandHint": "Choisissez la version pirate ou d’origine pour la barre latérale, l’accueil et le logo.",
+    "slotSidebar": "Icône latérale",
+    "slotHero": "Icône d’accueil",
+    "slotWordmark": "Logo",
+    "pirate": "Pirate",
+    "original": "Original",
+    "messages": "Textes d’interface",
+    "messagesHint": "Vocabulaire pirate affiché dans l’interface DSH pour cette langue.",
+    "key_sidebar_new": "Nouvelle discussion",
+    "key_hero_headline": "Titre d’accueil",
+    "phrases": "Phrases d’état",
+    "phrasesHint": "Phrases maritimes affichées pendant l’exécution, une par ligne.",
+    "interval": "Intervalle de rotation en ms",
+    "persona": "Prompt de personnalité",
+    "personaHint": "Prompt système du second injecté dans l’agent. Rechargé à l’enregistrement ; laissez vide pour ignorer cette langue.",
+    "langSection": "Contenu par langue",
+    "langSectionHint": "Choisissez la langue à modifier ci-dessous. Ce sélecteur ne change pas la langue active de l’interface.",
+    "editingLang": "Langue modifiée",
+    "noLocalePackForLang": "Aucun pack de textes d’interface configuré pour cette langue.",
+    "save": "Enregistrer",
+    "saved": "Enregistré",
+    "saving": "Enregistrement…",
+    "loadFailed": "Échec du chargement de la configuration",
+    "saveFailed": "Échec de l’enregistrement",
+    "loading": "Chargement…",
+    "noLanguages": "Aucun contenu de langue n’est activé.",
+    "noPrompts": "Le prompt de personnalité est actuellement désactivé.",
+    "oceanNote": "Le fond océanique se règle séparément en bas à droite de l’interface."
+  }
+}

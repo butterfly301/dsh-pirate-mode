@@ -1,0 +1,14 @@
+{
+  "id": "ja-pirate",
+  "label": "日本語 · 海賊",
+  "fallback": "ja",
+  "dictionaries": {
+    "sidebar": {
+      "session.new": "新たな航海",
+      "session.new.label": "新たな航海"
+    },
+    "conversation": {
+      "hero.headline": "帆を上げろ、出航だ"
+    }
+  }
+}

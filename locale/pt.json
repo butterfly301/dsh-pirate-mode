@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Modo pirata",
+    "description": "Coloca você como capitão e o agente como seu imediato, com ícones piratas, fundo oceânico animado, frases náuticas de status e pacotes em vários idiomas."
+  },
+  "ui": {
+    "nav": "Modo pirata",
+    "hint": "Os ícones, textos piratas, frases de status e o prompt do imediato passam a valer logo após salvar.",
+    "master": "Interruptor geral",
+    "masterHint": "Desligar restaura os ícones e textos originais e desativa o prompt do imediato; se um idioma pirata estiver ativo, volta ao idioma base.",
+    "on": "Ligado",
+    "off": "Desligado",
+    "brand": "Ícones de marca",
+    "brandHint": "Escolha pirata ou original separadamente para barra lateral, início e logotipo.",
+    "slotSidebar": "Ícone lateral",
+    "slotHero": "Ícone inicial",
+    "slotWordmark": "Logotipo",
+    "pirate": "Pirata",
+    "original": "Original",
+    "messages": "Textos da interface",
+    "messagesHint": "Vocabulário pirata exibido na interface do DSH para este idioma.",
+    "key_sidebar_new": "Novo chat",
+    "key_hero_headline": "Título inicial",
+    "phrases": "Frases de status",
+    "phrasesHint": "Frases náuticas para a linha de status em execução, uma por linha.",
+    "interval": "Intervalo de rotação em ms",
+    "persona": "Prompt de personalidade",
+    "personaHint": "Prompt de sistema do imediato injetado no agente. Recarrega ao salvar; deixe em branco para não injetar neste idioma.",
+    "langSection": "Conteúdo por idioma",
+    "langSectionHint": "Escolha o idioma para editar abaixo. Trocar este seletor não altera o idioma ativo da interface.",
+    "editingLang": "Editando idioma",
+    "noLocalePackForLang": "Nenhum pacote de textos de interface configurado para este idioma.",
+    "save": "Salvar",
+    "saved": "Salvo",
+    "saving": "Salvando…",
+    "loadFailed": "Falha ao carregar configuração",
+    "saveFailed": "Falha ao salvar",
+    "loading": "Carregando…",
+    "noLanguages": "Nenhum conteúdo de idioma está ativado.",
+    "noPrompts": "O prompt de personalidade está desativado.",
+    "oceanNote": "O fundo oceânico é configurado separadamente no canto inferior direito."
+  }
+}

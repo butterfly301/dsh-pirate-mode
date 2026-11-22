@@ -1,0 +1,14 @@
+{
+  "id": "ru-pirate",
+  "label": "Русский · Пиратский",
+  "fallback": "ru",
+  "dictionaries": {
+    "sidebar": {
+      "session.new": "Новое плавание",
+      "session.new.label": "Новое плавание"
+    },
+    "conversation": {
+      "hero.headline": "Поднять паруса"
+    }
+  }
+}

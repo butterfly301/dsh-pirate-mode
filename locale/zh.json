@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "海盗模式",
+    "description": "默认启用海盗侧栏与首页图标、海洋背景和大副人格。语言包、状态词与提示词正文按语言 ID 存放在 content/ 目录，可自由增删语言。用户自定义的 Logo、指令与音乐设置保持原样。"
+  },
+  "ui": {
+    "nav": "海盗模式",
+    "hint": "品牌图、海盗文案、状态词与人格提示词保存后即时生效。",
+    "master": "总开关",
+    "masterHint": "关闭会恢复原生图标与文案，并停用大副人格提示词；若当前使用海盗语言，会切回对应的原版语言。",
+    "on": "开启",
+    "off": "关闭",
+    "brand": "品牌图",
+    "brandHint": "侧栏标记、首页标记与字标，各自可选海盗图案或原版。",
+    "slotSidebar": "侧栏标记",
+    "slotHero": "首页标记",
+    "slotWordmark": "字标",
+    "pirate": "海盗",
+    "original": "原版",
+    "messages": "界面文案",
+    "messagesHint": "该语种下的 DSH 界面海盗用词。",
+    "key_sidebar_new": "新会话",
+    "key_hero_headline": "首页标题",
+    "phrases": "状态词",
+    "phrasesHint": "运行状态行显示的航海短句，每行一句。",
+    "interval": "轮换间隔，单位毫秒",
+    "persona": "人格提示词",
+    "personaHint": "注入给 Agent 的大副系统提示词，保存后即时热重载，留空则该语种不注入。",
+    "langSection": "语种内容",
+    "langSectionHint": "选择要编辑的语种；仅切换下方表单内容，不会改动当前界面语言。",
+    "editingLang": "正在编辑",
+    "noLocalePackForLang": "当前语种未配置界面文案包。",
+    "save": "保存",
+    "saved": "已保存",
+    "saving": "保存中…",
+    "loadFailed": "配置加载失败",
+    "saveFailed": "保存失败",
+    "loading": "加载中…",
+    "noLanguages": "当前未启用任何语种内容。",
+    "noPrompts": "当前未启用人格提示词。",
+    "oceanNote": "海洋背景在界面右下角单独设置。"
+  }
+}

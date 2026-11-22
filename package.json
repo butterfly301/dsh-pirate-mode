@@ -1,0 +1,70 @@
+{
+  "name": "dsh-pirate-mode",
+  "version": "0.5.0",
+  "type": "module",
+  "description": "Configuration bundle for pirate brand marks, per-language dictionaries, rotating status phrases, ocean background and an editable first-mate persona.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/butterfly301/dsh-pirate-mode.git"
+  },
+  "homepage": "https://github.com/butterfly301/dsh-pirate-mode#readme",
+  "bugs": {
+    "url": "https://github.com/butterfly301/dsh-pirate-mode/issues"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "pirate",
+    "theme"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=24.9.0",
+    "dsh": ">=0.2.2-rc.5 <0.3.0"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./patch-data": "./patch-data.cjs",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "cordis.patch.yml",
+    "index.js",
+    "client.js",
+    "patch-data.cjs",
+    "content",
+    "locale",
+    "assets",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "dsh-rotate-status-text": "^0.2.1",
+    "dsh-prompt-loader": "^0.2.0",
+    "dsh-locale-pack-loader": "^0.2.1",
+    "dsh-brand-pack-loader": "^0.1.2",
+    "dsh-ocean-background": "^0.1.7"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  }
+}

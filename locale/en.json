@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Pirate mode",
+    "description": "Enables pirate sidebar and conversation-home marks, an ocean background, and a first-mate persona by default. Locale packs, status phrases and persona text are stored by language id under content/, so languages can be added or removed freely. User logo overrides, custom instructions and music settings remain untouched."
+  },
+  "ui": {
+    "nav": "Pirate mode",
+    "hint": "Brand marks, pirate wording, status phrases and persona prompts apply live after saving.",
+    "master": "Master switch",
+    "masterHint": "Turning off restores native marks and wording and disables the first-mate prompt; if a pirate language is active, it switches back to the fallback language.",
+    "on": "On",
+    "off": "Off",
+    "brand": "Brand marks",
+    "brandHint": "Sidebar mark, conversation-home mark and wordmark; each can be pirate or original.",
+    "slotSidebar": "Sidebar mark",
+    "slotHero": "Conversation-home mark",
+    "slotWordmark": "Wordmark",
+    "pirate": "Pirate",
+    "original": "Original",
+    "messages": "Interface wording",
+    "messagesHint": "Pirate vocabulary shown in the DSH interface for this language.",
+    "key_sidebar_new": "New chat",
+    "key_hero_headline": "Home headline",
+    "phrases": "Status phrases",
+    "phrasesHint": "Pirate one-liners for the running-status line, one per line.",
+    "interval": "Rotation interval in ms",
+    "persona": "Persona prompt",
+    "personaHint": "First-mate system prompt injected into the agent. Saves hot-reload immediately; leave blank to skip injection for this language.",
+    "langSection": "Language content",
+    "langSectionHint": "Pick a language to edit below. Switching this selector does not change the active interface language.",
+    "editingLang": "Editing language",
+    "noLocalePackForLang": "No interface wording pack configured for this language.",
+    "save": "Save",
+    "saved": "Saved",
+    "saving": "Saving…",
+    "loadFailed": "Failed to load configuration",
+    "saveFailed": "Failed to save",
+    "loading": "Loading…",
+    "noLanguages": "No language content is currently enabled.",
+    "noPrompts": "Persona prompt is currently disabled.",
+    "oceanNote": "The ocean background is configured separately at the bottom-right of the interface."
+  }
+}

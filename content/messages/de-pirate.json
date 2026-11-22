@@ -1,0 +1,14 @@
+{
+  "id": "de-pirate",
+  "label": "Deutsch · Pirat",
+  "fallback": "de",
+  "dictionaries": {
+    "sidebar": {
+      "session.new": "Neue Fahrt",
+      "session.new.label": "Neue Fahrt"
+    },
+    "conversation": {
+      "hero.headline": "Segel setzen, Kurs voraus"
+    }
+  }
+}

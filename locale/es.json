@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "title": "Modo pirata",
+    "description": "Te convierte en capitán y al agente en tu primer oficial, con iconos pirata, fondo oceánico animado, frases náuticas de estado y paquetes pirata en varios idiomas."
+  },
+  "ui": {
+    "nav": "Modo pirata",
+    "hint": "Los iconos, los textos pirata, las frases de estado y el prompt del primer oficial se aplican al guardar.",
+    "master": "Interruptor general",
+    "masterHint": "Al desactivarlo se restauran los iconos y textos originales y se desactiva el prompt del primer oficial; si usas un idioma pirata, volverá al idioma base.",
+    "on": "Activado",
+    "off": "Desactivado",
+    "brand": "Iconos de marca",
+    "brandHint": "Elige versión pirata u original para la barra lateral, la portada y el logotipo.",
+    "slotSidebar": "Icono lateral",
+    "slotHero": "Icono de inicio",
+    "slotWordmark": "Logotipo",
+    "pirate": "Pirata",
+    "original": "Original",
+    "messages": "Textos de interfaz",
+    "messagesHint": "Vocabulario pirata mostrado en la interfaz de DSH para este idioma.",
+    "key_sidebar_new": "Nuevo chat",
+    "key_hero_headline": "Titular de inicio",
+    "phrases": "Frases de estado",
+    "phrasesHint": "Frases náuticas para la barra de estado en ejecución, una por línea.",
+    "interval": "Intervalo de rotación en ms",
+    "persona": "Prompt de personalidad",
+    "personaHint": "Prompt de sistema del primer oficial inyectado al agente. Se recarga al guardar; déjalo vacío para omitir este idioma.",
+    "langSection": "Contenido por idioma",
+    "langSectionHint": "Elige el idioma a editar abajo. Cambiar este selector no modifica el idioma activo de la interfaz.",
+    "editingLang": "Editando idioma",
+    "noLocalePackForLang": "No hay paquete de textos de interfaz para este idioma.",
+    "save": "Guardar",
+    "saved": "Guardado",
+    "saving": "Guardando…",
+    "loadFailed": "No se pudo cargar la configuración",
+    "saveFailed": "Error al guardar",
+    "loading": "Cargando…",
+    "noLanguages": "No hay contenido de idioma habilitado.",
+    "noPrompts": "El prompt de personalidad está desactivado.",
+    "oceanNote": "El fondo oceánico se configura aparte en la esquina inferior derecha."
+  }
+}
