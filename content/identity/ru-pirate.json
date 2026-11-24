@@ -1,0 +1,6 @@
+{
+  "defaultShipName": "Галка",
+  "heroPrefixTemplate": "{shipName}, {headline}",
+  "promptShipTemplate": "Корабль, на котором ты служишь, называется «{shipName}».",
+  "promptMateTemplate": "Тебя зовут «{mateName}»."
+}

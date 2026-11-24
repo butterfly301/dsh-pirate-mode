@@ -1,14 +1,21 @@
 # All language content lives under content/, keyed by language id in the file
 # name. Adding a language = dropping in files; no patch or code edits needed:
 #   content/messages/<langId>.json  -> locale dictionaries + language definition
-#   content/phrases/<langId>.txt    -> rotating status phrases
+#   content/phrases/<langId>.json   -> segmented rotating status phrases
 #   content/prompts/<langId>.txt    -> first-mate system prompt
+#   content/identity/<langId>.json  -> ship & first-mate naming templates
+#   content/morale/<langId>.json    -> crew morale & /rum phrases
 # Each !!js delegates to dsh-pirate-mode/patch-data (patch eval scope: baseUrl / process / ctx).
 - insert:
     # Host row: serves /pirate-mode/locale/<lang>.json and exposes this
     # package's settings page (dsh.client).
     - id: pirate-mode
       name: 'dsh-pirate-mode'
+      config:
+        identity:
+          shipNameOverride: false
+          mateName: ''
+          templates: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadIdentityTemplates()
     - id: locale-pack-loader
       name: 'dsh-locale-pack-loader'
       config:
@@ -39,4 +46,50 @@
       config:
         pack:
           intervalMs: 10000
+          thresholds: [30, 60]
           phrases: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadPhrases()
+          shakePhrases: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadShakePhrases()
+          stageColors:
+            light:
+              start: '#0ea5e9'
+              progress: '#1e40af'
+              long: '#ea580c'
+            dark:
+              start: '#38bdf8'
+              progress: '#60a5fa'
+              long: '#fb923c'
+    - id: dsh-window-shake
+      name: 'dsh-window-shake'
+      config:
+        enabled: true
+        cooldownMs: 60000
+    - id: dsh-confetti
+      name: 'dsh-confetti'
+      config:
+        pack:
+          colors: ['#f5c542', '#ffd966', '#ffb703', '#fb8500', '#ffffff']
+          particleCount: 95
+          spread: 78
+          originY: 0.65
+    - id: dsh-sound-pack-loader
+      name: 'dsh-sound-pack-loader'
+      config:
+        muted: false
+        volume: 0.8
+        triggerMode: background
+        events:
+          completed: true
+          failed: true
+          waiting: false
+        pack:
+          sounds: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadSoundDataUrls()
+    - id: dsh-crew-morale
+      name: 'dsh-crew-morale'
+      config:
+        initial: 100
+        retryDelta: -4
+        failedDelta: -12
+        cancelledDelta: -3
+        lowThreshold: 30
+        rumTarget: 100
+        pack: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadMoralePack()

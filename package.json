@@ -1,8 +1,8 @@
 {
   "name": "dsh-pirate-mode",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "type": "module",
-  "description": "Configuration bundle for pirate brand marks, per-language dictionaries, rotating status phrases, ocean background and an editable first-mate persona.",
+  "description": "Configuration bundle for pirate brand marks, per-language dictionaries, rotating status phrases, ocean background, notification chimes, crew morale, window shake, and an editable first-mate persona.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -35,10 +35,17 @@
     "./icon": "./icon.svg",
     "./package.json": "./package.json"
   },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "sync": "node scripts/sync-profile.mjs",
+    "verify": "node scripts/verify-release.mjs"
+  },
   "files": [
     "cordis.patch.yml",
     "index.js",
+    "identity.js",
     "client.js",
+    "client",
     "patch-data.cjs",
     "content",
     "locale",
@@ -50,11 +57,15 @@
     "LICENSE"
   ],
   "dependencies": {
-    "dsh-rotate-status-text": "latest",
-    "dsh-prompt-loader": "latest",
-    "dsh-locale-pack-loader": "latest",
-    "dsh-brand-pack-loader": "latest",
-    "dsh-ocean-background": "latest"
+    "dsh-rotate-status-text": "^0.3.2",
+    "dsh-prompt-loader": "^0.2.2",
+    "dsh-locale-pack-loader": "^0.2.1",
+    "dsh-brand-pack-loader": "^0.1.2",
+    "dsh-ocean-background": "^0.3.2",
+    "dsh-window-shake": "^0.1.0",
+    "dsh-sound-pack-loader": "^0.1.0",
+    "dsh-confetti": "^0.1.0",
+    "dsh-crew-morale": "^0.1.0"
   },
   "dsh": {
     "bundle": {

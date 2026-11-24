@@ -1,0 +1,25 @@
+{
+  "commandDescription": "Servir una ronda de ron para subir la moral y lanzar confeti",
+  "protestPhrases": [
+    "La tripulación golpea los barriles vacíos en señal de protesta",
+    "Corren murmullos de motín por la cubierta de proa",
+    "Sin un trago de ron nadie quiere izar más velas",
+    "El timonel refunfuña por lo baja que anda la paga"
+  ],
+  "retryPhrases": [
+    "Un chubasco obligó a virar de nuevo; bajó el ánimo",
+    "Arrecife a la vista, tocó maniobrar y la guardia frunció el ceño"
+  ],
+  "failedPhrases": [
+    "Recibimos una andanada en la última travesía; la moral cayó",
+    "La carta anterior llevó directo a la tormenta; la banda anda inquieta"
+  ],
+  "cancelledPhrases": [
+    "Orden de retirada a mitad de faena; la tripulación se rasca la cabeza",
+    "Ancla echada antes de tiempo; se oye un suspiro en cubierta"
+  ],
+  "rumPhrases": [
+    "¡Ron para todos! ¡La tripulación vuelve a rugir!",
+    "¡Salud, Capitán! ¡Hoy las velas vuelan más rápido que el viento!"
+  ]
+}

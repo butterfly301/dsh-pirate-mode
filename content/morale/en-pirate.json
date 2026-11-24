@@ -1,0 +1,25 @@
+{
+  "commandDescription": "Pour a round of rum to restore crew morale and burst confetti",
+  "protestPhrases": [
+    "The crew are banging empty rum casks in protest",
+    "Mutiny whispers are drifting across the foredeck",
+    "Hands refuse to haul another sheet without a tot of rum",
+    "The helmsman keeps grumbling about short rations"
+  ],
+  "retryPhrases": [
+    "Sudden squall forced a tack; crew spirits dipped",
+    "Reef ahead meant hauling back; the deckhands scowled"
+  ],
+  "failedPhrases": [
+    "Took a broadside on the last run; morale took a heavy hit",
+    "The last chart led straight into a storm; hands are rattled"
+  ],
+  "cancelledPhrases": [
+    "Called off the chase mid-run; the crew look puzzled",
+    "Dropped anchor mid-maneuver; sailors let out a sigh"
+  ],
+  "rumPhrases": [
+    "Rum for all hands! The crew are roaring back to life!",
+    "Cheers, Captain! Every sheet is flying faster than lightning!"
+  ]
+}

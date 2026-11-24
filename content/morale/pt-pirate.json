@@ -1,0 +1,25 @@
+{
+  "commandDescription": "Servir uma rodada de rum para restaurar o moral e soltar confetes",
+  "protestPhrases": [
+    "A tripulação está batucando nos barris de rum vazios",
+    "Já se ouvem sussurros de motim pela proa",
+    "Sem uma dose de rum ninguém quer puxar mais nenhuma adriça",
+    "O timoneiro resmunga baixo sobre o soldo curto"
+  ],
+  "retryPhrases": [
+    "Rajada súbita obrigou a mudar o rumo; o ânimo caiu um pouco",
+    "Recife à frente exigiu manobra nova; os marujos fecharam a cara"
+  ],
+  "failedPhrases": [
+    "Levamos uma bordada na última investida; o moral despencou",
+    "A carta anterior levou direto para a tempestade; a marujada treme"
+  ],
+  "cancelledPhrases": [
+    "A caçada foi abortada no meio; a tripulação ficou sem entender",
+    "Âncora lançada antes da hora; um suspiro correu pelo convés"
+  ],
+  "rumPhrases": [
+    "Rum para todos! A tripulação voltou com força total!",
+    "Um brinde, Capitão! As velas agora voam como um raio!"
+  ]
+}

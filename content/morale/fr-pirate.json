@@ -1,0 +1,25 @@
+{
+  "commandDescription": "Servir une tournée de rhum pour remonter le moral et lancer des confettis",
+  "protestPhrases": [
+    "L’équipage tambourine sur les tonneaux de rhum vides",
+    "Des murmures de mutinerie courent sur le gaillard d’avant",
+    "Sans ration de rhum, plus personne ne veut border les voiles",
+    "Le barreur grommelle entre ses dents contre la maigre solde"
+  ],
+  "retryPhrases": [
+    "Grain soudain, il a fallu virer de bord ; le moral baisse",
+    "Récif en vue, nouvelle manœuvre ; les matelots font grise mine"
+  ],
+  "failedPhrases": [
+    "Une bordée encaissée au dernier tour a plombé le moral",
+    "La dernière carte menait droit dans la tempête ; l’équipage s’inquiète"
+  ],
+  "cancelledPhrases": [
+    "Chasse interrompue en plein élan ; les gabiers restent perplexes",
+    "Ancre mouillée à mi-chemin ; un long soupir parcourt le pont"
+  ],
+  "rumPhrases": [
+    "Du rhum pour tout le bord ! L’équipage retrouve toute sa fougue !",
+    "À votre santé, Capitaine ! Les voiles claquent de plus belle !"
+  ]
+}

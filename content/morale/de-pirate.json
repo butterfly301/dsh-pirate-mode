@@ -1,0 +1,25 @@
+{
+  "commandDescription": "Eine Runde Rum ausschenken, um die Moral zu heben und Konfetti zu werfen",
+  "protestPhrases": [
+    "Die Mannschaft trommelt lautstark auf leeren Rumfässern",
+    "Auf dem Vordeck wird schon über Meuterei geflüstert",
+    "Ohne einen Schluck Rum rührt hier niemand ein Tau an",
+    "Der Steuermann murrt über magere Heuer"
+  ],
+  "retryPhrases": [
+    "Eine plötzliche Böe zwang zum Beidrehen, die Stimmung sinkt",
+    "Riff voraus! Das Wendemanöver drückt auf die Laune"
+  ],
+  "failedPhrases": [
+    "Eine harte Breitseite beim letzten Törn hat die Moral gedrückt",
+    "Die letzte Karte führte mitten in den Sturm – die Crew ist nervös"
+  ],
+  "cancelledPhrases": [
+    "Jagd mitten im Gefecht abgebrochen – die Crew wundert sich",
+    "Anker auf halbem Weg geworfen, ein Seufzer geht über Deck"
+  ],
+  "rumPhrases": [
+    "Rum für alle Mann! Die Mannschaft ist wieder hellwach!",
+    "Auf den Kapitän! Jetzt fliegen die Segel wieder!"
+  ]
+}

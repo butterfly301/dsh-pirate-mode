@@ -1,0 +1,6 @@
+{
+  "defaultShipName": "Jackdaw",
+  "heroPrefixTemplate": "{shipName}, {headline}",
+  "promptShipTemplate": "The ship you serve aboard is named \"{shipName}\".",
+  "promptMateTemplate": "Your name is \"{mateName}\"."
+}

@@ -1,0 +1,6 @@
+{
+  "defaultShipName": "寒鸦号",
+  "heroPrefixTemplate": "{shipName}，{headline}",
+  "promptShipTemplate": "你所在的船叫“{shipName}”。",
+  "promptMateTemplate": "你的名字叫“{mateName}”。"
+}

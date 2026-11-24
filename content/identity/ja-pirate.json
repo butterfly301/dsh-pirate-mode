@@ -1,0 +1,6 @@
+{
+  "defaultShipName": "ジャックドー号",
+  "heroPrefixTemplate": "{shipName}、{headline}",
+  "promptShipTemplate": "あなたが乗り組む船の名は「{shipName}」だ。",
+  "promptMateTemplate": "あなたの名は「{mateName}」だ。"
+}
