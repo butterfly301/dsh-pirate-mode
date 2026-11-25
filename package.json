@@ -51,8 +51,10 @@
     "locale",
     "assets",
     "icon.svg",
-    "preview-home.png",
-    "preview-chat.png",
+    "preview-home.gif",
+    "preview-chat.gif",
+    "preview-normal.gif",
+    "preview-ocean.gif",
     "README.md",
     "LICENSE"
   ],
