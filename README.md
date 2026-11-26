@@ -1,3 +1,5 @@
+简体中文 · [English](README.en.md)
+
 # dsh-pirate-mode
 
 给 DeepSeek Harness 加上一套完整的海盗模式：你是海盗船长，Agent 是你的大副，窗口后面铺开一片会随昼夜和真实天气变化的 3D 海面，并带有一整套航海交互与音效体验。
@@ -46,15 +48,15 @@ dsh plugin --profile desktop add dsh-pirate-mode
 
 安装这一个主包会自动带齐底层的 9 个独立组件，不用手动逐个安装：
 
-- `dsh-brand-pack-loader`
-- `dsh-locale-pack-loader`
-- `dsh-rotate-status-text`（在设置侧栏也提供独立设置页，与整合包同步）
-- `dsh-ocean-background`（在窗口右下角提供专属不遮挡浮窗面板，包含海景、昼夜天气与主旗更换）
-- `dsh-prompt-loader`
-- `dsh-window-shake`
-- `dsh-sound-pack-loader`（在设置侧栏也提供独立设置页，与整合包同步）
-- `dsh-confetti`
-- `dsh-crew-morale`
+- [`dsh-brand-pack-loader`](https://github.com/butterfly301/dsh-brand-pack-loader)
+- [`dsh-locale-pack-loader`](https://github.com/butterfly301/dsh-locale-pack-loader)
+- [`dsh-rotate-status-text`](https://github.com/butterfly301/dsh-rotate-status-text)（在设置侧栏也提供独立设置页，与整合包同步）
+- [`dsh-ocean-background`](https://github.com/butterfly301/dsh-ocean-background)（在窗口右下角提供专属不遮挡浮窗面板，包含海景、昼夜天气与主旗更换）
+- [`dsh-prompt-loader`](https://github.com/butterfly301/dsh-prompt-loader)
+- [`dsh-window-shake`](https://github.com/butterfly301/dsh-window-shake)
+- [`dsh-sound-pack-loader`](https://github.com/butterfly301/dsh-sound-pack-loader)（在设置侧栏也提供独立设置页，与整合包同步）
+- [`dsh-confetti`](https://github.com/butterfly301/dsh-confetti)
+- [`dsh-crew-morale`](https://github.com/butterfly301/dsh-crew-morale)
 
 如果新版本刚发布到 npm，命令行直装遇到 pnpm 的 `minimumReleaseAge` 冷却拦截，可以在 `~/.dsh/profiles/desktop/pnpm-workspace.yaml` 的 `minimumReleaseAgeExclude` 下把 `dsh-pirate-mode` 加入白名单，或者改用 DeepSeek Harness 内置插件管理器安装。
 
@@ -90,6 +92,8 @@ content/
 ```bash
 dsh plugin --profile desktop remove dsh-pirate-mode
 ```
+
+如果这趟航行让你开心，欢迎给仓库点一个 star。
 
 ## 许可
 
