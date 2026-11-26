@@ -1,6 +1,6 @@
 {
   "name": "dsh-pirate-mode",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "type": "module",
   "description": "Configuration bundle for pirate brand marks, per-language dictionaries, rotating status phrases, ocean background, notification chimes, crew morale, window shake, and an editable first-mate persona.",
   "license": "MIT",
