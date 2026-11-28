@@ -52,6 +52,7 @@ export function createPanel(React) {
     const [snapshots, setSnapshots] = useState({});
     const [status, setStatus] = useState('loading');
     const [error, setError] = useState(undefined);
+    const [missingForms, setMissingForms] = useState([]);
     const [dirty, setDirty] = useState(false);
     const [selectedLang, setSelectedLang] = useState('');
     const [phraseDrafts, setPhraseDrafts] = useState({});
@@ -74,7 +75,7 @@ export function createPanel(React) {
     const [, setUiVersion] = useState(0);
     const dirtyRef = useRef(false);
     const savedRef = useRef(null);
-    const pendingBackupActionRef = useRef(null); // 'save' | 'clear' | null
+    const pendingBackupActionRef = useRef(null);
     const brandSlotCacheRef = useRef({});
 
     const ids = useMemo(() => Object.keys(forms), [forms]);
@@ -176,9 +177,10 @@ export function createPanel(React) {
         next[id] = forms[id].getSnapshot();
       }
       setSnapshots(next);
-      const hasError = CORE_FORM_IDS.some((id) => next[id]?.status === 'error' || next[id]?.status === 'unavailable');
+      const missing = CORE_FORM_IDS.filter((id) => next[id]?.status === 'unavailable');
+      setMissingForms(missing);
       const coreReady = CORE_FORM_IDS.every((id) => next[id]?.status === 'ready');
-      setStatus(coreReady ? 'ready' : (hasError ? 'error' : 'loading'));
+      setStatus(coreReady ? 'ready' : (missing.length > 0 ? 'error' : 'loading'));
     }, [ids, forms]);
 
     useEffect(() => {
@@ -272,9 +274,9 @@ export function createPanel(React) {
     };
 
     if (status === 'loading') return h('div', { className: 'pm-panel' }, h('div', { className: 'pm-note' }, t('loading')));
-    if (status === 'error' && !dirty) {
+    if ((status === 'error' || status === 'unavailable') && !dirty) {
       return h('div', { className: 'pm-panel' },
-        h('div', { className: 'pm-error' }, t('loadFailed')),
+        h('div', { className: 'pm-error' }, missingForms.length > 0 ? `${t('loadFailed')}: ${missingForms.join(', ')}` : t('loadFailed')),
         error ? h('div', { className: 'pm-note' }, error) : null);
     }
 

@@ -1,7 +1,3 @@
-// Entry shell for dsh-pirate-mode. Wraps hero.headline with the ship name,
-// handles dynamic UI locales and first-time auto-locale switching, and lazy-loads
-// the modular settings panel from /pirate-mode/client/panel.js.
-
 window.__ModuleLoader__.load({
   id: 'dsh-pirate-mode',
   factory(require) {
@@ -130,7 +126,7 @@ window.__ModuleLoader__.load({
     }
 
     return {
-      inject: ['slots', 'locale', 'configForms', 'remote', 'remote.settings'],
+      inject: ['slots', 'locale', 'configForms'],
       apply(ctx) {
         const uiCatalog = new Map();
         const pendingFetches = new Map();
@@ -342,14 +338,24 @@ window.__ModuleLoader__.load({
             });
           } catch {
             holder = Object.getPrototypeOf(locale);
-            if (!holder || typeof holder.translate !== 'function') return undefined;
+            if (!holder || typeof holder.translate !== 'function') {
+              try { unsubMode(); } catch {}
+              try { unsubLoc(); } catch {}
+              return undefined;
+            }
             own = Object.getOwnPropertyDescriptor(holder, 'translate');
-            Object.defineProperty(holder, 'translate', {
-              value: patched,
-              writable: true,
-              configurable: true,
-              enumerable: own !== undefined && own.enumerable === true,
-            });
+            try {
+              Object.defineProperty(holder, 'translate', {
+                value: patched,
+                writable: true,
+                configurable: true,
+                enumerable: own !== undefined && own.enumerable === true,
+              });
+            } catch {
+              try { unsubMode(); } catch {}
+              try { unsubLoc(); } catch {}
+              return undefined;
+            }
           }
 
           checkHeroSync();
@@ -359,7 +365,8 @@ window.__ModuleLoader__.load({
             onHeroDepsChanged = null;
             try { unsubMode?.(); } catch {}
             try { unsubLoc?.(); } catch {}
-            if (holder.translate === patched) {
+            const descriptor = Object.getOwnPropertyDescriptor(holder, 'translate');
+            if (descriptor && descriptor.value === patched) {
               if (own === undefined) delete holder.translate;
               else Object.defineProperty(holder, 'translate', own);
             }
@@ -405,20 +412,15 @@ window.__ModuleLoader__.load({
         const savePatch = async (opsByNs) => {
           const entries = Object.entries(opsByNs).filter(([, ops]) => Array.isArray(ops) && ops.length > 0);
           if (entries.length === 0) return;
-          const settingsRemote = ctx.remote?.settings;
-          if (!settingsRemote) throw new Error('settingsRemoteUnavailable');
           const savedNamespaces = [];
           for (const [namespace, ops] of entries) {
             const form = forms[namespace] || (namespace === LOCALE_PREF ? localePrefForm : ctx.configForms.get(namespace));
             if (!form) continue;
-            const snap = form.getSnapshot();
-            const response = await settingsRemote.mutate(namespace, ops, snap.revision);
-            if (response.ok) {
-              ctx.configForms.describe().acceptView(response.value);
+            const accepted = await form.mutate(ops, form.getSnapshot().revision);
+            if (accepted) {
               savedNamespaces.push(namespace);
             } else {
-              await ctx.configForms.describe().load();
-              const err = new Error(response.error?.message || response.error?.code || 'persistFailed');
+              const err = new Error('persistFailed');
               if (savedNamespaces.length > 0) {
                 err.partialSaved = savedNamespaces;
                 err.failedNamespace = namespace;

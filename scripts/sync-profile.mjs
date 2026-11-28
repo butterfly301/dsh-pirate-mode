@@ -69,8 +69,6 @@ for (const pkgName of PACKAGES) {
   await syncPackage(pkgName);
 }
 
-// Remove stale nested copies inside dsh-pirate-mode/node_modules so Cordis
-// resolves the synced hoisted top-level packages.
 for (const subPkg of SUB_PACKAGES) {
   await rm(join(PROFILE_NODE_MODULES, 'dsh-pirate-mode', 'node_modules', subPkg), {
     recursive: true,

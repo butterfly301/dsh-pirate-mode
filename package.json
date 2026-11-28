@@ -1,6 +1,6 @@
 {
   "name": "dsh-pirate-mode",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "type": "module",
   "description": "Configuration bundle for pirate brand marks, per-language dictionaries, rotating status phrases, ocean background, notification chimes, crew morale, window shake, and an editable first-mate persona.",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "access": "public"
   },
   "engines": {
-    "node": ">=24.9.0",
+    "node": ">=20",
     "dsh": ">=0.2.2-rc.5 <0.3.0"
   },
   "exports": {
@@ -60,15 +60,15 @@
     "LICENSE"
   ],
   "dependencies": {
-    "dsh-rotate-status-text": "^0.3.2",
-    "dsh-prompt-loader": "^0.2.2",
-    "dsh-locale-pack-loader": "^0.2.1",
-    "dsh-brand-pack-loader": "^0.1.2",
-    "dsh-ocean-background": "^0.3.2",
-    "dsh-window-shake": "^0.1.0",
-    "dsh-sound-pack-loader": "^0.1.0",
-    "dsh-confetti": "^0.1.0",
-    "dsh-crew-morale": "^0.1.0"
+    "dsh-rotate-status-text": "^0.4.0",
+    "dsh-prompt-loader": "^0.2.3",
+    "dsh-locale-pack-loader": "^0.3.0",
+    "dsh-brand-pack-loader": "^0.2.0",
+    "dsh-ocean-background": "^0.5.0",
+    "dsh-window-shake": "^0.2.0",
+    "dsh-sound-pack-loader": "^0.2.0",
+    "dsh-confetti": "^0.2.0",
+    "dsh-crew-morale": "^0.2.0"
   },
   "dsh": {
     "bundle": {

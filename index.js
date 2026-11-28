@@ -1,7 +1,3 @@
-// Host entry for dsh-pirate-mode. Serves read-only UI dictionaries, client ESM
-// modules, identity helpers, default flag image, and atomic master-switch backup
-// storage, and injects the ship/mate identity section into systemPrompt.
-
 import { mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { homedir } from 'node:os';
@@ -21,7 +17,7 @@ function loadSchemastery() {
     if (err?.code !== 'MODULE_NOT_FOUND' || !String(err.message).includes('@deepseek-ai/schemastery')) {
       throw err;
     }
-    const chain = () => ({ default: chain, min: chain, max: chain, volatile: chain });
+    const chain = () => ({ default: chain, min: chain, max: chain, pattern: chain, volatile: chain });
     return { object: chain, string: chain, number: chain, boolean: chain, array: chain, dict: chain, union: chain, const: chain };
   }
 }
@@ -36,8 +32,8 @@ const templateSchema = z.object({
 });
 
 const identitySchema = z.object({
-  shipNameOverride: z.union([z.const(false), z.string()]).default(false),
-  mateName: z.string().default(''),
+  shipNameOverride: z.union([z.const(false), z.string().pattern(/^[^\r\n]{0,40}$/u)]).default(false),
+  mateName: z.string().pattern(/^[^\r\n]{0,40}$/u).default(''),
   templates: z.dict(templateSchema).default({}),
 });
 
@@ -53,6 +49,7 @@ const DEFAULT_FLAG_ROUTE = '/pirate-mode/default-flag.png';
 const IDENTITY_ROUTE = '/pirate-mode/identity.js';
 const IDENTITY_TEMPLATES_ROUTE = '/pirate-mode/identity-templates.json';
 const CLIENT_ROUTE = '/pirate-mode/client';
+const SOUND_ROUTE = '/pirate-mode/sounds';
 const CLIENT_PREFIX = `${CLIENT_ROUTE}/`;
 const BACKUP_ROUTE = '/pirate-mode/master-backup';
 const MAX_BACKUP_BYTES = 8 * 1024 * 1024;
@@ -66,6 +63,8 @@ const DEFAULT_FLAG_PATH = resolve(fileURLToPath(new URL('./assets/default-flag.p
 const IDENTITY_PATH = resolve(fileURLToPath(new URL('./identity.js', import.meta.url)));
 const CLIENT_ROOT = resolve(fileURLToPath(new URL('./client/', import.meta.url)));
 const LOCALE_ROOT = resolve(fileURLToPath(new URL('./locale/', import.meta.url)));
+const SOUND_ROOT = resolve(fileURLToPath(new URL('./assets/sounds/', import.meta.url)));
+const SOUND_FILES = new Set(['ship-bell.wav', 'ship-horn.wav', 'bosun-pipe.wav']);
 const LANG_RE = /^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$/u;
 
 const CLIENT_MIME = Object.freeze({
@@ -75,7 +74,7 @@ const CLIENT_MIME = Object.freeze({
 
 const unwrap = (field) => (field && typeof field.get === 'function' ? field.get() : field);
 
-function readService(ctx, key) {
+export function readService(ctx, key) {
   try {
     if (typeof ctx?.get === 'function') return ctx.get(key);
     if (ctx?.reflect && typeof ctx.reflect.get === 'function') return ctx.reflect.get(key);
@@ -93,6 +92,26 @@ function dataDirOf(ctx) {
   }
   const home = process.env.DSH_HOME || join(homedir(), '.dsh');
   return join(home, 'pirate-mode');
+}
+
+function rejectCrossSite(req, res, webServer) {
+  const site = req.headers?.['sec-fetch-site'];
+  if (typeof site === 'string' && site !== 'same-origin' && site !== 'none') {
+    res.writeHead(403, { 'x-content-type-options': 'nosniff' });
+    res.end();
+    return true;
+  }
+  const origin = req.headers?.origin;
+  if (typeof origin === 'string' && origin !== '') {
+    let expected = null;
+    try { expected = typeof webServer?.getOrigin === 'function' ? webServer.getOrigin() : null; } catch {}
+    if (expected && origin !== expected) {
+      res.writeHead(403, { 'x-content-type-options': 'nosniff' });
+      res.end();
+      return true;
+    }
+  }
+  return false;
 }
 
 function send(req, res, status, body, contentType, cacheControl) {
@@ -123,6 +142,7 @@ function readJsonBody(req, limitBytes) {
         const err = new Error('backup payload too large');
         err.status = 413;
         fail(err);
+        req.destroy?.();
         return;
       }
       chunks.push(chunk);
@@ -163,9 +183,14 @@ export function createMasterBackupStore({ dir }) {
         throw err;
       }
       await mkdir(dir, { recursive: true });
-      const tmp = `${filePath}.${process.pid}.${Date.now()}.tmp`;
-      await writeFile(tmp, JSON.stringify(backup, null, 2) + '\n', 'utf8');
-      await rename(tmp, filePath);
+      const tmp = `${filePath}.${process.pid}.${Date.now()}.${Math.random().toString(36).slice(2)}.tmp`;
+      try {
+        await writeFile(tmp, JSON.stringify(backup, null, 2) + '\n', 'utf8');
+        await rename(tmp, filePath);
+      } catch (error) {
+        await unlink(tmp).catch(() => {});
+        throw error;
+      }
       return backup;
     },
     async clear() {
@@ -284,6 +309,34 @@ export function apply(ctx, config = {}) {
       },
     });
 
+    const unregisterSounds = scope.webServer.register({
+      kind: 'prefix',
+      path: SOUND_ROUTE,
+      handler: async (req, res) => {
+        if (req.method !== 'GET' && req.method !== 'HEAD') return send(req, res, 405);
+        let url;
+        try {
+          url = new URL(req.url ?? SOUND_ROUTE, 'http://dsh.local');
+        } catch {
+          return send(req, res, 400);
+        }
+        if (!url.pathname.startsWith(`${SOUND_ROUTE}/`)) return send(req, res, 404);
+        let name;
+        try {
+          name = decodeURIComponent(url.pathname.slice(SOUND_ROUTE.length + 1));
+        } catch {
+          return send(req, res, 400);
+        }
+        if (!SOUND_FILES.has(name)) return send(req, res, 404);
+        try {
+          const buf = await readFile(join(SOUND_ROOT, name));
+          return send(req, res, 200, buf, 'audio/wav', 'public, max-age=86400');
+        } catch {
+          return send(req, res, 404);
+        }
+      },
+    });
+
     const unregisterIdentity = scope.webServer.register({
       kind: 'exact',
       path: IDENTITY_ROUTE,
@@ -340,6 +393,7 @@ export function apply(ctx, config = {}) {
       kind: 'exact',
       path: BACKUP_ROUTE,
       handler: async (req, res) => {
+        if (req.method !== 'GET' && req.method !== 'HEAD' && rejectCrossSite(req, res, scope.webServer)) return;
         if (req.method === 'GET' || req.method === 'HEAD') {
           const backup = await backupStore.read();
           return send(req, res, 200, JSON.stringify({ ok: true, backup }), 'application/json; charset=utf-8', 'no-store');
@@ -365,6 +419,7 @@ export function apply(ctx, config = {}) {
     return () => {
       unregisterLocale?.();
       unregisterFlag?.();
+      unregisterSounds?.();
       unregisterIdentity?.();
       unregisterIdentityTemplates?.();
       unregisterClient?.();

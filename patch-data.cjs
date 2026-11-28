@@ -1,8 +1,5 @@
 'use strict'
 
-// Shared content loaders for cordis.patch.yml. Keeping directory scanning and
-// base64 encoding here avoids repeating path resolution inside every !!js block.
-
 const fs = require('node:fs')
 const path = require('node:path')
 
@@ -96,16 +93,11 @@ function loadIdentityTemplates() {
   return out
 }
 
-function loadWavDataUrl(relPath) {
-  const raw = fs.readFileSync(path.join(ROOT, relPath))
-  return 'data:audio/wav;base64,' + raw.toString('base64')
-}
-
-function loadSoundDataUrls() {
+function loadSoundUrls() {
   return {
-    completed: loadWavDataUrl('assets/sounds/ship-bell.wav'),
-    failed: loadWavDataUrl('assets/sounds/ship-horn.wav'),
-    waiting: loadWavDataUrl('assets/sounds/bosun-pipe.wav'),
+    completed: '/pirate-mode/sounds/ship-bell.wav',
+    failed: '/pirate-mode/sounds/ship-horn.wav',
+    waiting: '/pirate-mode/sounds/bosun-pipe.wav',
   }
 }
 
@@ -154,6 +146,6 @@ module.exports = {
   loadPhrases,
   loadShakePhrases,
   loadIdentityTemplates,
-  loadSoundDataUrls,
+  loadSoundUrls,
   loadMoralePack,
 }

@@ -1,5 +1,3 @@
-// Pure identity helpers shared between host system-prompt injection, client UI, and tests.
-
 export const MAX_IDENTITY_NAME_LENGTH = 40;
 
 export function primarySubtag(lang) {

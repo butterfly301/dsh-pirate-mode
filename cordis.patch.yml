@@ -82,7 +82,7 @@
           failed: true
           waiting: false
         pack:
-          sounds: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadSoundDataUrls()
+          sounds: !!js process.getBuiltinModule('node:module').createRequire(baseUrl)('dsh-pirate-mode/patch-data').loadSoundUrls()
     - id: dsh-crew-morale
       name: 'dsh-crew-morale'
       config:

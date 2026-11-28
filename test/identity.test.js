@@ -21,7 +21,7 @@ const {
   loadPhrases,
   loadPrompts,
   loadShakePhrases,
-  loadSoundDataUrls,
+  loadSoundUrls,
 } = require('../patch-data.cjs');
 
 test('validateIdentityName trims whitespace, rejects newlines and >40 chars', () => {
@@ -109,7 +109,7 @@ test('formatHeroHeadline prefixes only when pirate locale is active and uses lan
   );
 });
 
-test('patch-data loaders load all 8 languages, morale pack, and bundled WAV data URLs', () => {
+test('patch-data loaders load all 8 languages, morale pack, and bundled WAV URLs', () => {
   assert.equal(loadMessages().length, 8);
   assert.equal(Object.keys(loadPrompts()).length, 8);
   assert.equal(Object.keys(loadPhrases()).length, 8);
@@ -121,10 +121,10 @@ test('patch-data loaders load all 8 languages, morale pack, and bundled WAV data
   assert.equal(Object.keys(morale.protestPhrases).length, 8);
   assert.equal(Object.keys(morale.rumPhrases).length, 8);
 
-  const sounds = loadSoundDataUrls();
-  assert.ok(sounds.completed.startsWith('data:audio/wav;base64,'));
-  assert.ok(sounds.failed.startsWith('data:audio/wav;base64,'));
-  assert.ok(sounds.waiting.startsWith('data:audio/wav;base64,'));
+  const sounds = loadSoundUrls();
+  assert.equal(sounds.completed, '/pirate-mode/sounds/ship-bell.wav');
+  assert.equal(sounds.failed, '/pirate-mode/sounds/ship-horn.wav');
+  assert.equal(sounds.waiting, '/pirate-mode/sounds/bosun-pipe.wav');
 
   const moraleNoDup = loadMoralePack();
   assert.deepEqual(moraleNoDup.confetti, {});
